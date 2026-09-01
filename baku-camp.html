@@ -28,18 +28,20 @@
 <!-- ⚠️ Замените 99999999 на ваш ID счётчика в ДВУХ местах выше и в JS-константе YM_ID ниже по странице -->
 <!-- /Яндекс.Метрика -->
 
-<!-- ============================================================
-  VK ПИКСЕЛЬ — замените YOUR_VK_PIXEL_ID на свой ID (тот же, что и
-  на странице Турции), вида VK-RTRG-XXXXXX-XXXXX.
-============================================================= -->
+<!-- Top.Mail.Ru counter -->
 <script type="text/javascript">
-  !function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?169",t.onload=function(){
-    VK.Retargeting.Init("YOUR_VK_PIXEL_ID");
-    VK.Retargeting.Hit();
-  },document.head.appendChild(t)}();
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3791318", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "tmr-code");
 </script>
-<noscript><img src="https://vk.com/rtrg?p=YOUR_VK_PIXEL_ID" style="position:fixed; left:-9999px;" alt="" /></noscript>
-<!-- /VK Пиксель -->
+<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3791318;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
+<!-- /Top.Mail.Ru counter -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -201,8 +203,20 @@ header.site{
 .two-col.reverse .col-media{order:2;}
 @media(max-width:860px){.two-col.reverse .col-media{order:0;}}
 .col-media img{border-radius:14px;}
-.mini-carousel{display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:thin; scrollbar-color:var(--clay) transparent; padding-bottom:4px;}
-.mini-carousel img{flex:0 0 100%; scroll-snap-align:start; border-radius:14px; aspect-ratio:4/3; object-fit:cover;}
+.mini-carousel-wrap{position:relative;}
+.mini-carousel{display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none;}
+.mini-carousel::-webkit-scrollbar{display:none;}
+.mini-carousel img{flex:0 0 86%; scroll-snap-align:start; border-radius:14px; aspect-ratio:4/3; object-fit:cover;}
+@media(min-width:640px){.mini-carousel img{flex:0 0 92%;}}
+.carousel-dots{display:flex; gap:6px; justify-content:center; margin-top:14px;}
+.carousel-dots button{width:6px; height:6px; border-radius:50%; background:rgba(243,239,225,.3); border:none; padding:0; cursor:pointer; transition:background .2s ease, width .2s ease;}
+.carousel-dots button.active{background:var(--clay); width:20px; border-radius:3px;}
+.carousel-arrow{position:absolute; top:50%; transform:translateY(-50%); width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.9); border:1px solid var(--line-light); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,.12); transition:background .2s ease;}
+.carousel-arrow:hover{background:#fff;}
+.carousel-arrow svg{width:16px; height:16px;}
+.carousel-arrow.prev{left:10px;}
+.carousel-arrow.next{right:10px;}
+@media(max-width:640px){.carousel-arrow{display:none;}}
 .feature-list{list-style:none; margin:26px 0 0; padding:0; display:grid; gap:14px;}
 .feature-list li{display:flex; gap:12px; align-items:flex-start; font-size:15.5px; line-height:1.5;}
 .feature-list li::before{
@@ -674,11 +688,20 @@ footer .container{position:relative; z-index:1;}
         <p class="lede" style="margin-top:18px;">На время кемпа вы остановитесь в Promenade Hotel Baku — отеле в центре города с видом на старый Баку. Завтраки включены. А в дни Azerbaijan Grand Prix с террасы отеля открывается вид на трассу.</p>
       </div>
       <div class="col-media reveal">
-        <div class="mini-carousel">
-          <img src="images/baku/stay.jpg" alt="Promenade Hotel Baku — номера и лобби">
-          <img src="images/new/padel-aerial.jpg" alt="TOP PADEL CLUB — корты сверху">
-          <img src="images/new/racket-flatlay.jpg" alt="Падел на территории TOP PADEL CLUB">
+        <div class="mini-carousel-wrap">
+          <div class="mini-carousel" id="stayCarousel">
+            <img src="images/baku/stay.jpg" alt="Promenade Hotel Baku — номера и лобби">
+            <img src="images/new/padel-aerial.jpg" alt="TOP PADEL CLUB — корты сверху">
+            <img src="images/new/racket-flatlay.jpg" alt="Падел на территории TOP PADEL CLUB">
+          </div>
+          <button class="carousel-arrow prev" type="button" aria-label="Предыдущее фото" data-carousel-prev="stayCarousel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="carousel-arrow next" type="button" aria-label="Следующее фото" data-carousel-next="stayCarousel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
         </div>
+        <div class="carousel-dots" data-carousel-dots="stayCarousel"></div>
       </div>
     </div>
 
@@ -898,7 +921,7 @@ footer .container{position:relative; z-index:1;}
 ============================================================= */
 const YM_ID = 99999999;                        // ⚠️ тот же ID, что и в счётчике Метрики в <head>
 const CONFIG = {
-  GAS_WEBAPP_URL: 'PASTE_YOUR_APPS_SCRIPT_WEBAPP_URL_HERE', // тот же URL, что и на странице Турции — один лист "Заявки" на оба кемпа
+  GAS_WEBAPP_URL: 'https://script.google.com/macros/s/AKfycbyvFaS6cvVsqnfzWQqirzQdgFYboQqlSkA9JCnawCV7izq1GVEN75PVw6-X-LhyJuNUEw/exec', // тот же URL, что и на странице Турции — один лист "Заявки" на оба кемпа
   WHATSAPP_NUMBER: '905527495905',
   WHATSAPP_TEXT: 'Здравствуйте! Хочу узнать подробнее про Baku Padel Camp',
   INSTAGRAM_DIRECT: 'https://ig.me/m/thesocialset_event',
@@ -934,7 +957,7 @@ document.querySelectorAll('[data-track]').forEach(el=>{
   el.addEventListener('click', function(){
     const goal = this.getAttribute('data-track');
     try{ if(typeof ym === 'function') ym(YM_ID, 'reachGoal', goal); }catch(e){}
-    try{ if(window.VK && VK.Retargeting) VK.Retargeting.Event(goal); }catch(e){}
+    try{ if(window._tmr) _tmr.push({ type: 'reachGoal', id: 3791318, goal: goal }); }catch(e){}
   });
 });
 
@@ -979,7 +1002,7 @@ leadForm.addEventListener('submit', function(e){
 
 function onLeadSuccess(){
   try{ if(typeof ym === 'function') ym(YM_ID, 'reachGoal', 'lead_submit'); }catch(e){}
-  try{ if(window.VK && VK.Retargeting) VK.Retargeting.Event('lead_submit'); }catch(e){}
+  try{ if(window._tmr) _tmr.push({ type: 'reachGoal', id: 3791318, goal: 'lead_submit' }); }catch(e){}
   document.getElementById('formFields').classList.add('hide');
   document.getElementById('thankYou').classList.add('show');
 }
@@ -1068,6 +1091,48 @@ if('IntersectionObserver' in window && mobileCta && heroEl){
       if(heroContent){ heroContent.style.opacity = String(Math.max(0, 1 - y/500)); heroContent.style.transform = 'translateY(' + (y*0.12) + 'px)'; }
     }, {passive:true});
   }
+})();
+</script>
+<script>
+/* ============ MINI-CAROUSEL — dots + arrows ============ */
+(function(){
+  document.querySelectorAll('.mini-carousel').forEach(function(track){
+    var id = track.id;
+    var dotsWrap = document.querySelector('[data-carousel-dots="' + id + '"]');
+    var imgs = track.querySelectorAll('img');
+    if (dotsWrap) {
+      imgs.forEach(function(_, i){
+        var b = document.createElement('button');
+        if (i === 0) b.classList.add('active');
+        b.setAttribute('aria-label', 'Фото ' + (i + 1));
+        b.addEventListener('click', function(){
+          track.scrollTo({ left: imgs[i].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+        });
+        dotsWrap.appendChild(b);
+      });
+    }
+    function updateDots(){
+      if (!dotsWrap) return;
+      var center = track.scrollLeft + track.clientWidth / 2;
+      var closest = 0, closestDist = Infinity;
+      imgs.forEach(function(img, i){
+        var imgCenter = img.offsetLeft - track.offsetLeft + img.offsetWidth / 2;
+        var dist = Math.abs(imgCenter - center);
+        if (dist < closestDist) { closestDist = dist; closest = i; }
+      });
+      dotsWrap.querySelectorAll('button').forEach(function(b, i){ b.classList.toggle('active', i === closest); });
+    }
+    track.addEventListener('scroll', function(){ requestAnimationFrame(updateDots); }, { passive: true });
+
+    var prevBtn = document.querySelector('[data-carousel-prev="' + id + '"]');
+    var nextBtn = document.querySelector('[data-carousel-next="' + id + '"]');
+    function step(dir){
+      var w = imgs[0] ? imgs[0].offsetWidth + 12 : track.clientWidth;
+      track.scrollBy({ left: dir * w, behavior: 'smooth' });
+    }
+    if (prevBtn) prevBtn.addEventListener('click', function(){ step(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function(){ step(1); });
+  });
 })();
 </script>
 </body>
