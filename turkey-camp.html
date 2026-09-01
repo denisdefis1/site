@@ -130,6 +130,9 @@ header.site{
   display:none;
 }
 @media(min-width:820px){.dates-pill{display:block;}}
+.all-camps-link{font-size:13.5px; font-weight:500; color:var(--muted); white-space:nowrap; padding:8px 4px; transition:color .2s ease;}
+.all-camps-link:hover{color:var(--ink);}
+@media(max-width:480px){.all-camps-link{display:none;}}
 .header-actions{display:flex; align-items:center; gap:10px;}
 .icon-btn{
   width:38px; height:38px; border-radius:50%; border:1px solid var(--line-light);
@@ -205,6 +208,9 @@ header.site{
 .two-col.reverse .col-media{order:2;}
 @media(max-width:860px){.two-col.reverse .col-media{order:0;}}
 .col-media img{border-radius:14px;}
+.mini-carousel{display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:thin; scrollbar-color:var(--clay) transparent; padding-bottom:4px;}
+.mini-carousel img{flex:0 0 82%; scroll-snap-align:start; border-radius:14px; aspect-ratio:4/3; object-fit:cover;}
+@media(min-width:640px){.mini-carousel img{flex:0 0 100%;}}
 .feature-list{list-style:none; margin:26px 0 0; padding:0; display:grid; gap:14px;}
 .feature-list li{display:flex; gap:12px; align-items:flex-start; font-size:15.5px; line-height:1.5;}
 .feature-list li::before{
@@ -256,14 +262,14 @@ header.site{
 
 /* ---------- Timeline ---------- */
 .timeline{margin-top:46px; display:grid; gap:0;}
-.tl-tabs{display:flex; gap:8px; flex-wrap:wrap; margin-top:44px;}
+.tl-tabs{display:flex; gap:8px; flex-wrap:wrap; margin-top:32px; padding-top:28px; border-top:1px solid var(--line-light);}
 .tl-tab{
   font-family:var(--serif); font-size:14.5px; font-weight:600; color:var(--muted);
   background:none; border:1px solid var(--line-light); border-radius:999px; padding:10px 20px; cursor:pointer;
   transition:background .2s ease, color .2s ease, border-color .2s ease;
 }
 .tl-tab.active{background:var(--clay); border-color:var(--clay); color:#fff;}
-.tl-panels{margin-top:28px; border-top:1px solid var(--line-light); padding-top:28px; min-height:120px;}
+.tl-panels{margin-top:28px; padding-bottom:28px; border-bottom:1px solid var(--line-light); min-height:120px;}
 .tl-panel{display:none;}
 .tl-panel.active{display:block;}
 .tl-item{
@@ -494,10 +500,11 @@ footer .container{position:relative; z-index:1;}
     </div>
     <span class="dates-pill">23–31 окт · 31 окт–8 ноя</span>
     <div class="header-actions">
+      <a class="all-camps-link" href="index.html">← Все кемпы</a>
       <a class="icon-btn" id="waIconTop" href="#" aria-label="WhatsApp" data-track="whatsapp_click">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.5 3.5A10.4 10.4 0 0 0 12 0 10.4 10.4 0 0 0 3.5 16.7L2 22l5.5-1.4A10.4 10.4 0 0 0 12 21.9a10.4 10.4 0 0 0 8.5-18.4zM12 20a8.4 8.4 0 0 1-4.3-1.2l-.3-.2-3.2.8.9-3.1-.2-.3A8.4 8.4 0 1 1 20.4 12 8.4 8.4 0 0 1 12 20z"/><path d="M16.6 13.9c-.3-.1-1.6-.8-1.9-.9s-.4-.1-.6.1-.7.9-.9 1-.3.2-.6.1a6.8 6.8 0 0 1-2-1.2 7.5 7.5 0 0 1-1.4-1.7c-.1-.3 0-.4.1-.5l.4-.5.2-.3v-.3c0-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.7 2.7 0 0 0-.8 2 4.6 4.6 0 0 0 1 2.5 10.5 10.5 0 0 0 4.2 3.7c1.5.6 1.5.4 1.7.4a2.5 2.5 0 0 0 1.6-1.1 1.9 1.9 0 0 0 .1-1.1c-.1-.1-.2-.2-.5-.3z"/></svg>
       </a>
-      <a class="btn btn-clay btn-sm" href="#form">Оставить заявку</a>
+      <a class="btn btn-clay btn-sm" href="#form">Получить программу</a>
     </div>
   </div>
 </header>
@@ -515,7 +522,7 @@ footer .container{position:relative; z-index:1;}
     <h1 class="reveal">Турция.<br>Теннис <em>&</em> падел кемп</h1>
     <p class="lede reveal">Море, теннис и падел, сильные тренеры и 8 ночей в Liberty Lykia. 18 теннисных и 2 падел-корта прямо на территории отеля. Тренировки в мини-группах по уровню. Один день — за пределами корта, чтобы увидеть Фетхие и Олюдениз. В финале — игровой день, турнир и вечер вместе.</p>
     <div class="hero-ctas reveal">
-      <a href="#form" class="btn btn-clay">Оставить заявку</a>
+      <a href="#form" class="btn btn-clay">Получить программу</a>
       <a href="#program" class="btn btn-ghost-light">Смотреть программу</a>
     </div>
     <div class="hero-stats reveal">
@@ -533,7 +540,7 @@ footer .container{position:relative; z-index:1;}
     <div class="col-text reveal">
       <div class="eyebrow dark">О кемпе</div>
       <h2>Спорт — причина приехать.<br>Всё остальное — часть поездки.</h2>
-      <p class="lede" style="margin-top:18px;">Утром — тренировка. После — море, бассейн, обед или время для себя. Один день оставляем без ракетки — едем смотреть Фетхие, Олюдениз, Бабадаг и Долину бабочек. А ближе к финалу снова возвращаемся на корт: больше игровой практики, тактики и подготовка к турниру. 8 ночей в Liberty Lykia, где спорт и отдых находятся в одной локации.</p>
+      <p class="lede" style="margin-top:18px;">Утром встречаемся на корте. Днём — море, бассейн, обед и время для себя. Вечером снова играем. Такой ритм позволяет много тренироваться, но не превращает поездку в спортивные сборы. Один день полностью оставляем без ракетки — отправляемся знакомиться с регионом: Фетхие, Олюдениз, Бабадаг и Долина бабочек. А ближе к финалу возвращаемся к игре и готовимся к турниру. 8 ночей в Liberty Lykia, где спорт и отдых находятся в одной локации.</p>
       <ul class="feature-list">
         <li>5,5 тренировочных дней + финальный турнир</li>
         <li>11 тренировок по 1,5 часа</li>
@@ -588,7 +595,15 @@ footer .container{position:relative; z-index:1;}
         <li>Спортивная инфраструктура на территории отеля</li>
       </ul>
     </div>
-    <div class="col-media reveal"><img src="images/liberty.jpg" alt="Liberty Lykia — номер, корты и бассейны"></div>
+    <div class="col-media reveal">
+      <div class="mini-carousel">
+        <img src="images/liberty.jpg" alt="Liberty Lykia — номер">
+        <img src="images/stay.jpg" alt="Liberty Lykia — бассейн и вид на море">
+        <img src="images/sport.jpg" alt="Liberty Lykia — тренировка на корте">
+        <img src="images/training.jpg" alt="Liberty Lykia — падел на территории отеля">
+        <img src="images/new/balls-dark.jpg" alt="The Social Set — теннис">
+      </div>
+    </div>
   </div>
 </section>
 
@@ -615,7 +630,7 @@ footer .container{position:relative; z-index:1;}
       </div>
       <div class="trainer-card reveal">
         <div class="trainer-photo">
-          <div class="trainer-photo-pending"><span class="initial">ПА</span><span class="pending-label">Фото скоро</span></div>
+          <img src="images/coach-petr.jpg" alt="Пётр Абрамов, тренер по теннису">
           <div class="trainer-stat"><b>13 лет</b><span>опыта · ITF</span></div>
         </div>
         <h3>Пётр Абрамов</h3>
@@ -722,7 +737,7 @@ footer .container{position:relative; z-index:1;}
 
     <div class="stay-grid reveal">
       <div class="price-summary">
-        <div class="amount">от $2 679<small>/чел.</small></div>
+        <div class="amount">от $2 670<small>/чел.</small></div>
         <p>Спорт-пакет ($1 500) + проживание в двухместном номере Standard на двоих (8 ночей, Ultra AI). Перелёт и трансфер — отдельно.</p>
       </div>
       <h3 style="margin-top:32px; margin-bottom:6px;">Стоимость проживания по категориям</h3>
@@ -731,30 +746,30 @@ footer .container{position:relative; z-index:1;}
         <div class="price-card">
           <h4>Single</h4>
           <span class="sub">Одноместное размещение</span>
-          <div class="row"><span>Standard Room Land View</span><b>$2 001<span class="per-night">$250,13 / ночь</span></b></div>
-          <div class="row"><span>Deluxe Standard Room</span><b>$2 150,50<span class="per-night">$268,81 / ночь</span></b></div>
+          <div class="row"><span>Standard Room Land View</span><b>$2 000<span class="per-night">$250 / ночь</span></b></div>
+          <div class="row"><span>Deluxe Standard Room</span><b>$2 150<span class="per-night">$260 / ночь</span></b></div>
         </div>
         <div class="price-card">
           <h4>Double</h4>
           <span class="sub">Двухместное, за номер (~$1 180/чел.)</span>
-          <div class="row"><span>Standard Room Land View</span><b>$2 357,50<span class="per-night">$294,69 / ночь</span></b></div>
-          <div class="row"><span>Deluxe Standard Room</span><b>$2 530<span class="per-night">$316,25 / ночь</span></b></div>
+          <div class="row"><span>Standard Room Land View</span><b>$2 350<span class="per-night">$290 / ночь</span></b></div>
+          <div class="row"><span>Deluxe Standard Room</span><b>$2 530<span class="per-night">$310 / ночь</span></b></div>
         </div>
         <div class="price-card">
           <h4>Double + Child</h4>
           <span class="sub">2 взрослых + ребёнок до 12 лет</span>
-          <div class="row"><span>Standard Room Land View</span><b>$2 357,50<span class="per-night">$294,69 / ночь</span></b></div>
-          <div class="row"><span>Deluxe Standard Room</span><b>$2 530<span class="per-night">$316,25 / ночь</span></b></div>
+          <div class="row"><span>Standard Room Land View</span><b>$2 350<span class="per-night">$290 / ночь</span></b></div>
+          <div class="row"><span>Deluxe Standard Room</span><b>$2 530<span class="per-night">$310 / ночь</span></b></div>
         </div>
         <div class="price-card">
           <h4>Triple</h4>
           <span class="sub">Трёхместное размещение</span>
-          <div class="row"><span>Family Room Land View</span><b>$4 140<span class="per-night">$517,50 / ночь</span></b></div>
-          <div class="row"><span>Deluxe Large Room</span><b>$4 197,50<span class="per-night">$524,69 / ночь</span></b></div>
+          <div class="row"><span>Family Room Land View</span><b>$4 140<span class="per-night">$510 / ночь</span></b></div>
+          <div class="row"><span>Deluxe Large Room</span><b>$4 190<span class="per-night">$520 / ночь</span></b></div>
         </div>
       </div>
       <div class="price-note">Актуальную стоимость уточняйте перед бронированием — цены могут меняться. Перелёт рассчитывается индивидуально, поможем подобрать оптимальный вариант.</div>
-      <div class="price-note" style="margin-top:12px;"><b>−10% второму участнику</b> в одном заезде. <b>−10% при раннем бронировании.</b> Скидки применяются согласно условиям бронирования.</div>
+      <div class="price-note" style="margin-top:12px;"><b>−10% второму участнику</b> в одном заезде. <b>−10% при раннем бронировании</b> до 14 сентября. Скидки суммируются, максимум −15%. Действуют на спорт-пакет ($1 500), не на проживание.</div>
     </div>
   </div>
 </section>
@@ -794,7 +809,7 @@ footer .container{position:relative; z-index:1;}
           <li>Проживание</li>
           <li>Трансфер аэропорт ↔ отель</li>
         </ul>
-        <p style="font-size:13px; color:var(--muted); margin-top:14px;">С перелётом и трансфером команда поможет подобрать оптимальные варианты.</p>
+        <p style="font-size:13px; color:rgba(243,239,225,.72); margin-top:14px;">С перелётом и трансфером команда поможет подобрать оптимальные варианты.</p>
       </div>
     </div>
   </div>
@@ -961,7 +976,7 @@ footer .container{position:relative; z-index:1;}
 <!-- ============ MOBILE STICKY CTA ============ -->
 <div class="mobile-cta" id="mobileCta">
   <a class="btn btn-ghost-dark btn-sm" id="waIconMobile" href="#" data-track="whatsapp_click">WhatsApp</a>
-  <a class="btn btn-clay btn-sm" href="#form">Оставить заявку</a>
+  <a class="btn btn-clay btn-sm" href="#form">Получить программу</a>
 </div>
 
 <script>
